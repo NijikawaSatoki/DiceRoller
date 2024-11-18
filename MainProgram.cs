@@ -18,6 +18,8 @@ namespace DiceRoller {
             var convenience = new Convenience();
             // Ask the user for their name
             string user = "\u3000";
+            Console.Write("What name do you go by? (Preferred name, no deadnames please) ");
+            user = Console.ReadLine();
             // Retrieve date and time
             DateTime time = DateTime.Now;
             string dateTimeFileFormat = "yyyyMMdd-HHmmss";
