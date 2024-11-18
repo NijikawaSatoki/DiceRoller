@@ -45,15 +45,15 @@ namespace Niji.Convenience {
             File.AppendAllText(path, header);
             return path;
         }
-        public string CurrentDateTime() {
+        public string CurrentDateTime(string timezone) {
             DateTime time = DateTime.Now;
-            string format = "yyyyMMdd-HHmmss";
+            string format = "yyyyMMdd-HHmmss{timezone}";
             string currentTime = time.ToString(format);
             return currentTime;
         }
-        public string CurrentTimeDate() {
+        public string CurrentTimeDate(string timezone) {
             DateTime time = DateTime.Now;
-            string format = "HH:mm:ss yyyy/MM/dd";
+            string format = $"HH:mm:ss {timezone} yyyy/MM/dd";
             string currentTime = time.ToString(format);
             return currentTime;
         }
