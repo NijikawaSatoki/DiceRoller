@@ -10,11 +10,12 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
+using Niji.Convenience;
+
 namespace DiceRoller {
     class MainProgram {
         static void Main() {
-            // You'll see in a moment
-            bool developerMode = false;
+            var convenience = new Convenience();
             // Ask the user for their name
             string user = "\u3000";
             // Retrieve date and time
