@@ -27,20 +27,7 @@ namespace DiceRoller {
             string fileTime = time.ToString(dateTimeFileFormat);
             string timeGreeting = time.ToString(dateTimeGreetFormat);
             // Create output file
-            char dirSep = '\u3000';
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-                dirSep = '\\';
-            } else {
-                dirSep = '/';
-            }
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string systemUser = Environment.UserName;
-            string dataDir = $@"{systemUser}.data{dirSep}DiceRoller";
-            string outFile = $@"YourRolls-{fileTime}.txt";
-            string outPath = $@"{appData}{dirSep}{dataDir}{dirSep}{outFile}";
-            string outHead = $"This file was created {timeGreeting}.\n\n\n";
-            Directory.CreateDirectory($@"{appData}{dirSep}{dataDir}");
-            File.AppendAllText(outPath, outHead);
+            string path = convenience.CreateFile("DiceRoller", "Rolls", "txt");
             // RNG initialisation
             var rng = new Random();
             int d6 = rng.Next(1, 7); // genNum == 1 <= x < 7
