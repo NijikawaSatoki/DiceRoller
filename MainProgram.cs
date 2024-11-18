@@ -21,11 +21,7 @@ namespace DiceRoller {
             Console.Write("What name do you go by? (Preferred name, no deadnames please) ");
             user = Console.ReadLine();
             // Retrieve date and time
-            DateTime time = DateTime.Now;
-            string dateTimeFileFormat = "yyyyMMdd-HHmmss";
-            string dateTimeGreetFormat = "HH:mm:ss yyyy/MM/dd";
-            string fileTime = time.ToString(dateTimeFileFormat);
-            string timeGreeting = time.ToString(dateTimeGreetFormat);
+            currentTime = convenience.CurrentTimeDate();
             // Create output file
             string path = convenience.CreateFile("DiceRoller", "Rolls", "txt");
             // RNG initialisation
@@ -33,7 +29,7 @@ namespace DiceRoller {
             int d6 = rng.Next(1, 7); // genNum == 1 <= x < 7
             int d20 = rng.Next(1, 21); // genNum == 1 <= x < 21
             // START!
-            Console.WriteLine($"Welcome! The current date and time is {timeGreeting}!");
+            Console.WriteLine($"Welcome! The current date and time is {currentTime}!");
             // Open the file stream
             TextWriter rngOutput = new StreamWriter(path, true);
             rngOutput.WriteLine = "Your generated numbers will appear below.\n";
