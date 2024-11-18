@@ -31,7 +31,7 @@ namespace Niji.Convenience {
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             // Create data directory
             string systemUser = Environment.UserName;
-            string userDataDirectory = $@"{systemUser}.data";
+            string userDataDirectory = $@".{systemUser}.data";
             Directory.CreateDirectory($@"{appData}{separator}{userDataDirectory}");
             string dataDirectory = $@"{userDataDirectory}{separator}{projectNamespace}";
             Directory.CreateDirectory($@"{appData}{separator}{dataDirectory}");
