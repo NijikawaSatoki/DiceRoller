@@ -35,7 +35,8 @@ namespace DiceRoller {
             // START!
             Console.WriteLine($"Welcome! The current date and time is {timeGreeting}!");
             // Open the file stream
-            TextWriter rngOutput = new StreamWriter(outPath, true);
+            TextWriter rngOutput = new StreamWriter(path, true);
+            rngOutput.WriteLine = "Your generated numbers will appear below.\n";
             // Ask which dice to roll
             int rollCount;
             int dice;
@@ -80,7 +81,7 @@ namespace DiceRoller {
             rngOutput.WriteLine($"Hope to see you again soon, {user}!");
             rngOutput.Close();
             // Send the user on their way
-            Console.WriteLine($@"Your generated numbers can be found in {outPath}");
+            Console.WriteLine($@"Your generated numbers can be found in {path}");
             Console.WriteLine($"Have a nice day, {user}!");
             Console.WriteLine("Please press any key to exit...");
             Console.ReadKey();
