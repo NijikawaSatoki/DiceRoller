@@ -36,10 +36,12 @@ namespace Niji.Convenience {
             string dataDirectory = $@"{userDataDirectory}{separator}{projectNamespace}";
             Directory.CreateDirectory($@"{appData}{separator}{dataDirectory}");
             // Create the file
+            Console.Write("Please enter your timezone: ");
+            string timezone = Console.ReadLine();
             var dateTime = new Convenience();
-            string fileDateTime = dateTime.CurrentDateTime();
+            string fileDateTime = dateTime.CurrentDateTime(timezone);
             string file = $@"{filename}_{fileDateTime}.{extension}";
-            string generalTimeDate = dateTime.CurrentTimeDate();
+            string generalTimeDate = dateTime.CurrentTimeDate(timezone);
             string header = $"\t\tFILE CREATED {generalTimeDate}\n\n";
             string path = $@"{appData}{separator}{dataDirectory}{separator}{file}";
             File.AppendAllText(path, header);
@@ -47,7 +49,7 @@ namespace Niji.Convenience {
         }
         public string CurrentDateTime(string timezone) {
             DateTime time = DateTime.Now;
-            string format = "yyyyMMdd-HHmmss{timezone}";
+            string format = $"yyyyMMdd-HHmmss{timezone}";
             string currentTime = time.ToString(format);
             return currentTime;
         }
