@@ -38,13 +38,13 @@ namespace DiceRoller {
             int dice;
             Console.WriteLine("Which dice do you want to roll?");
             Console.WriteLine("1. d6" + "\t" + "2. d20");
-            dice = Convert.ToInt32(Console.ReadLine());
+            dice = convenience.Input32BitInteger();
             switch (dice) {
                 case 1:
                     rngOutput.WriteLine($"{user} wants to roll a d6.");
                     // Ask how many times to roll the die
                     Console.WriteLine("How many times do you want to roll?");
-                    rollCount = Convert.ToInt32(Console.ReadLine());
+                    rollCount = convenience.Input32BitInteger();
                     Console.WriteLine($"{user} rolls {rollCount}d6!");
                     rngOutput.WriteLine($"{user} rolls {rollCount}d6!");
                     // Rolls the die
@@ -59,7 +59,7 @@ namespace DiceRoller {
                     rngOutput.WriteLine($"{user} wants to roll a d20.");
                     // Ask how many times to roll the die
                     Console.WriteLine("How many times do you want to roll?");
-                    rollCount = Convert.ToInt32(Console.ReadLine());
+                    rollCount = convenience.Input32BitInteger());
                     Console.WriteLine($"{user} rolls {rollCount}d20!");
                     rngOutput.WriteLine($"{user} rolls {rollCount}d20!");
                     // Rolls the die
